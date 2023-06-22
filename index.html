@@ -12,9 +12,29 @@
     .user-details {
       margin-top: 20px;
     }
+    .navbar {
+      background-color: #f1f1f1;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .profile-pic {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .profile-name {
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
+  <div class="navbar">
+    <img id="profile-pic" class="profile-pic" src="" alt="Profile Picture">
+    <span id="profile-name" class="profile-name"></span>
+  </div>
+
   <h1>Telegram Login Widget Example</h1>
 
   <div id="telegram-login"></div>
@@ -38,6 +58,10 @@
 
       // Show the user details section
       document.getElementById('user-details').style.display = 'block';
+
+      // Update profile picture and name on the navbar
+      document.getElementById('profile-pic').src = user.photo_url;
+      document.getElementById('profile-name').textContent = user.first_name;
 
       // Alert the user details (optional)
       alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
