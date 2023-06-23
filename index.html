@@ -2,9 +2,11 @@
 <html>
 <head>
   <title>Telegram Login Widget Example</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <style>
     /* CSS styles */
     body {
+      background-color: #f1f1f1;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
@@ -27,7 +29,112 @@
     .profile-name {
       font-weight: bold;
     }
+    .pricing-card {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid #ff69b4;
+      max-width: 300px;
+      margin: 0 10px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .price {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .features-list {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 20px;
+      font-size: 14px;
+      text-align: left;
+    }
+    .features-list li {
+      margin-bottom: 5px;
+      color: #555;
+      position: relative;
+      padding-left: 20px;
+    }
+    .features-list li:before {
+      content: "\2022";
+      position: absolute;
+      left: 0;
+      color: #555;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 14px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #555;
+    }
+    @keyframes sheetAnimation {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .pricing-card:hover {
+      animation: sheetAnimation 1.3s ease-in-out forwards;
+    }
+    /* Added a new CSS class for the container of pricing cards */
+    .pricing-container {
+      display: flex;
+      justify-content: center;
+    }
+    .payment-note {
+      margin-top: 20px;
+      font-size: 14px;
+      color: red;
+      text-align: center;
+    }
+    /* Added styles for the UPI payment button */
+    .upi-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 14px;
+      background-color: #ff69b4;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+    }
+    .upi-btn:hover {
+      background-color: #ff4f9b;
+    }
+    .footer {
+      background-color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+    }
   </style>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=MyOOZQYZLo0GLIg4W9Q06aKNk1qdWlHdoHYnradL8vg-nqotXycL7gXE8xl03XRHWG6L4oOyDpRGX9BLk94QBpBykYMzztoyU7lN93N4ky0oo3pCW_6yFYS1_sn1FDelVwhZT_lelr7trgwCePtmpYBJ2GTptzdoDyVC5DaEty8Ehvn9M98LGmZxzI4FVxTURGY5QTDDKtSbMnhIjCm-NadCK_IUPCoJryNReTbpBrmyVyeFyawUWw88o2MdWL4Cim3svTzc157FPt98LradSg" charset="UTF-8"></script>
 </head>
 <body>
   <div class="navbar">
@@ -41,6 +148,52 @@
     <h2>Logged-in User Details:</h2>
     <p id="first-name"></p>
   </div>
+
+  <main>
+    <section>
+      <div class="pricing-container"> <!-- Added a container for pricing cards -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h2>Choose Your Plan</h2>
+            <h1>Pro Plan</h1>
+            <p class="price">&#8377;500/per month</p>
+          </div>
+          <ul class="features-list">
+            <li>Remove Watermark</li>
+            <li>Set Custom Picture to Start</li>
+            <li>One Month Free Trial</li>
+            <li>No Ads</li>
+            <li>Broadcast Promotion Messages in Every 2 Hours</li>
+          </ul>
+          <a href="https://buy.stripe.com/bIYaEMf8n7iUd0IbII" class="btn">Get Started</a>
+          <a href="upi.html" class="upi-btn">Make UPI Payment</a> <!-- Added the UPI payment button -->
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h2>Choose Another Plan</h2>
+            <h1>Standard Plan</h1>
+            <p class="price">&#8377;250/per month</p>
+          </div>
+          <ul class="features-list">
+            <li>Remove Watermark</li>
+            <li>Access to Premium Templates</li>
+            <li>One Week Free Trial</li>
+            <li>Limited Ads</li>
+            <li>Broadcast Promotion Messages in Every 6 Hours</li>
+          </ul>
+          <a href="#" class="btn">Get Started</a>
+          <a href="upi.html" class="upi-btn">Make UPI Payment</a> <!-- Added the UPI payment button -->
+        </div>
+      </div>
+      <p class="payment-note"><b>Note:</b> Your payment is secure. Don't trust fake websites and buy with only UPI and Stripe only. If you made any payments of both, you must send a screenshot to this bot in Telegram <a href="https://t.me/yumikopromotionsbot">Yumiko Payments</a>. After submission, within 24 hours, your premium will be activated. Fake payments will be banned.</p>
+    </section>
+  </main>
+
+<footer class="footer">
+    <a href="terms.html">Terms and Conditions</a> | 
+    <a href="refund.html">Refund Policy</a> | 
+    <a href="privacy.html">Privacy Policy</a>
+</footer>
 
   <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="Yumikolimitatibot" data-size="small" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
   <script type="text/javascript">
